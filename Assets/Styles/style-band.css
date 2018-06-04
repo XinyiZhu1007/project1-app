@@ -36,6 +36,7 @@ h2 {
     flex-direction: row;   
     justify-content: space-between; 
     width: 100%;
+    height: auto;
     padding: 10px;
 }
 .space-marg {

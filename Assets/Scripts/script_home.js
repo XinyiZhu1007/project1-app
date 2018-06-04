@@ -1,18 +1,21 @@
 var keyword, keyword_proper;
 var name, imageURL, date, time, city, country, longitude, latitude, venue, purchaseURL, priceMin, priceCurrency;
-var resultList = [], selection;
+var resultList = [], selection, ts;
 
 //add firebase and initialize
+
+
+  // Initialize Firebase
 // var config = {
-//     apiKey: "AIzaSyD5BqbKtmkJgORf30vyWK00xdHPDikCylo",
-//     authDomain: "chatapp-may16.firebaseapp.com",
-//     databaseURL: "https://chatapp-may16.firebaseio.com",
-//     projectId: "chatapp-may16",
-//     storageBucket: "chatapp-may16.appspot.com",
-//     messagingSenderId: "117485271119"
+//     apiKey: "AIzaSyAuSRb0ubG8DtpkTWME9wLh5EeK6Ng1lMk",
+//     authDomain: "project1-1a7fd.firebaseapp.com",
+//     databaseURL: "https://project1-1a7fd.firebaseio.com",
+//     projectId: "project1-1a7fd",
+//     storageBucket: "",
+//     messagingSenderId: "726631129587"
 // };
-    
 // firebase.initializeApp(config);
+
 // var database = firebase.database();
 
 
@@ -26,8 +29,14 @@ $("#search-button").on("click", function(event) {
     console.log(keyword + keyword_proper);
 
     ticketSearch(keyword_proper);
-    // updateHistory();
-    // postResult();
+
+    // ts = Math.round((new Date()).getTime() / 1000); 
+    // console.log(ts);
+
+    // database.ref().orderByChild('time').once('value').then(function(snapshot) {
+    //     console.log(snapshot);
+
+    // });
 
 })
 
@@ -88,11 +97,12 @@ function ticketSearch(keyword_proper) {
 
         localStorage.setItem("resultList", JSON.stringify(resultList));
         localStorage.setItem("keyword", keyword);
-        
 
         // database.ref().push({
         //     keyword: keyword,
-        //     image: imageURL
+        //     image: imageURL,
+        //     time: ts,
+        //     id: database.ref().push().key
         // });
 
         window.location.href = "./band.html";
